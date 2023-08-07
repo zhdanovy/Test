@@ -7,50 +7,19 @@ public class Main {
         int sumz = sc.nextInt();
         System.out.println("Введите внесенную сумму клиентом");
         int sumk = sc.nextInt();
-        int[] masprimer = {1,2,5,10,50,100,200,500,1000,2000,5000};
-        int[] mas = {0,0,0,0,0,0,0,0,0,0,0};
+        int[] masprimer = {5000,2000,1000,500,200,100,50,10,5,2,1};
         int sdacha = sumk - sumz;
-        while (sdacha>0){
-            if (sdacha >= masprimer[10]) {
-                sdacha -= masprimer[10];
-                mas[10]++;
-            } else if (sdacha >= masprimer[9]) {
-                sdacha -= masprimer[9];
-                mas[9]++;
-            } else if (sdacha >= masprimer[8]) {
-                sdacha -= masprimer[8];
-                mas[8]++;
-            } else if (sdacha >= masprimer[7]) {
-                sdacha -= masprimer[7];
-                mas[7]++;
-            } else if (sdacha >= masprimer[6]) {
-                sdacha -= masprimer[6];
-                mas[6]++;
-            } else if (sdacha >= masprimer[5]) {
-                sdacha -= masprimer[5];
-                mas[5]++;
-            } else if (sdacha >= masprimer[4]) {
-                sdacha -= masprimer[4];
-                mas[4]++;
-            } else if (sdacha >= masprimer[3]) {
-                sdacha -= masprimer[3];
-                mas[3]++;
-            } else if (sdacha >= masprimer[2]) {
-                sdacha -= masprimer[2];
-                mas[2]++;
-            } else if (sdacha >= masprimer[1]) {
-                sdacha -= masprimer[1];
-                mas[1]++;
-            } else if (sdacha >= masprimer[0]) {
-                sdacha -= masprimer[0];
-                mas[0]++;
+        int index = 0;
+        System.out.println("Сдача:");
+        while (sdacha > 0) {
+            if (sdacha/masprimer[index] > 0) {
+                System.out.println(masprimer[index] + " руб: " + sdacha/masprimer[index] + " шт.");
+                sdacha = sdacha % masprimer[index];
+                index = index + 1;
+            } else if (sdacha/masprimer[index] == 0) {
+                sdacha = sdacha % masprimer[index];
+                index = index + 1;
             }
         }
-        System.out.println("Сдача:");
-        for (int i = mas.length-1; i>0; i--) {
-            if (mas[i]>0) {
-                System.out.println(masprimer[i] + " руб: " + mas[i] + " шт.");
-            }
         }
     }
-}
